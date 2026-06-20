@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #c5a880; /* Elegant gold/sand */
+            --primary: #c5a880;
             --primary-hover: #b0936b;
-            --bg-dark: #121c17; /* Deep forest green / dark */
+            --bg-dark: #121c17;
             --bg-glass: rgba(255, 255, 255, 0.05);
             --border-glass: rgba(255, 255, 255, 0.1);
             --text-light: #f4f4f4;
@@ -46,13 +46,13 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* Typography & Utilities */
         .section-title {
             font-size: 3rem;
             text-align: center;
             margin-bottom: 1rem;
             color: var(--primary);
         }
+
         .section-subtitle {
             text-align: center;
             font-size: 1.1rem;
@@ -61,7 +61,6 @@
             margin: 0 auto 4rem;
         }
 
-        /* Glassmorphism */
         .glass-panel {
             background: var(--bg-glass);
             backdrop-filter: blur(12px);
@@ -71,7 +70,6 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -112,6 +110,7 @@
         }
 
         .nav-links a:hover { color: var(--primary); }
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -122,6 +121,7 @@
             background-color: var(--primary);
             transition: width 0.3s ease;
         }
+
         .nav-links a:hover::after { width: 100%; }
 
         .mobile-menu-btn {
@@ -130,6 +130,7 @@
             flex-direction: column;
             gap: 5px;
         }
+
         .mobile-menu-btn span {
             width: 25px;
             height: 2px;
@@ -137,7 +138,6 @@
             transition: 0.3s;
         }
 
-        /* Button */
         .btn-primary {
             display: inline-block;
             background: var(--primary);
@@ -151,18 +151,18 @@
             border: none;
             cursor: pointer;
         }
+
         .btn-primary:hover {
             background: var(--primary-hover);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(197, 168, 128, 0.2);
         }
 
-        /* Global Parallax Wrapper */
         .parallax-wrapper {
             position: relative;
             width: 100%;
         }
-        
+
         .parallax-bg-shape {
             position: absolute;
             border-radius: 50%;
@@ -171,7 +171,6 @@
             pointer-events: none;
         }
 
-        /* Hero Section */
         #home {
             height: 100vh;
             display: flex;
@@ -179,23 +178,29 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            z-index: 1; /* Creates a stacking context so background doesn't hide behind body */
+            z-index: 1;
         }
 
         .hero-carousel {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 120%; /* 120% for parallax room */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
             z-index: -1;
         }
 
         .hero-carousel img {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
         }
+
         .hero-carousel img.active { opacity: 0.4; }
 
         .hero-content {
@@ -219,7 +224,6 @@
             font-style: italic;
         }
 
-        /* About Section */
         #about {
             padding: 8rem 5%;
             position: relative;
@@ -248,13 +252,13 @@
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
+
         .about-image img {
             width: 100%;
-            height: 120%; /* Parallax breathing room */
+            height: 120%;
             object-fit: cover;
         }
 
-        /* Services Section */
         #services {
             padding: 6rem 5%;
             position: relative;
@@ -277,7 +281,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
         }
@@ -293,12 +297,15 @@
 
         .service-carousel img {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             opacity: 0;
             transition: opacity 1s ease;
         }
+
         .service-carousel img.active { opacity: 1; }
 
         .service-info {
@@ -328,7 +335,6 @@
             align-self: flex-start;
         }
 
-        /* Reviews Section (Marquee) */
         #reviews {
             padding: 8rem 0;
             overflow: hidden;
@@ -358,8 +364,15 @@
         .row-1 .marquee-content { animation: scroll-left 40s linear infinite; }
         .row-2 .marquee-content { animation: scroll-right 40s linear infinite; }
 
-        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-        @keyframes scroll-right { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes scroll-right {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
 
         .review-card {
             width: 350px;
@@ -367,11 +380,19 @@
             flex-shrink: 0;
             text-align: left;
         }
-        
-        .stars { color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem; }
-        .review-text { font-size: 1rem; font-style: italic; color: var(--text-muted); }
 
-        /* FAQ Section */
+        .stars {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
         #faq {
             padding: 6rem 5%;
             max-width: 900px;
@@ -379,6 +400,7 @@
         }
 
         .accordion { margin-top: 2rem; }
+
         .accordion-item {
             margin-bottom: 1rem;
             border-bottom: 1px solid var(--border-glass);
@@ -402,11 +424,13 @@
         }
 
         .accordion-header:hover { color: var(--primary); }
+
         .accordion-header span {
             font-size: 1.5rem;
             color: var(--primary);
             transition: transform 0.3s ease;
         }
+
         .accordion-header.active span { transform: rotate(45deg); }
 
         .accordion-content {
@@ -414,14 +438,13 @@
             overflow: hidden;
             transition: max-height 0.4s ease, padding 0.4s ease;
         }
-        
+
         .accordion-content p {
             padding-bottom: 1.5rem;
             color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        /* Contact Section */
         #contact {
             padding: 6rem 5% 8rem;
             position: relative;
@@ -436,14 +459,14 @@
         }
 
         .contact-info { padding: 3rem; }
-        
+
         .info-item {
             margin-bottom: 2rem;
             display: flex;
             align-items: flex-start;
             gap: 1rem;
         }
-        
+
         .info-item .icon {
             font-size: 1.5rem;
             color: var(--primary);
@@ -456,7 +479,10 @@
             color: var(--text-light);
         }
 
-        .info-item p { color: var(--text-muted); font-size: 1rem; }
+        .info-item p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
 
         .map-container {
             border-radius: 20px;
@@ -464,18 +490,17 @@
             height: 100%;
             min-height: 400px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex; /* Ensures content stretches */
+            display: flex;
         }
-        
-        iframe { 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-            display: block; /* Fixes baseline gaps */
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
             flex-grow: 1;
         }
 
-        /* Footer */
         footer {
             background: #080c0a;
             text-align: center;
@@ -485,22 +510,27 @@
             font-size: 0.9rem;
         }
 
-        /* Animations */
         .fade-in-up {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Responsive Design */
         @media (max-width: 992px) {
-            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
             .about-image { height: 400px; }
+
             .hero-content h1 { font-size: 3.5rem; }
+
             .map-container { min-height: 350px; }
         }
 
@@ -521,15 +551,28 @@
                 z-index: 999;
                 border-bottom: 1px solid var(--border-glass);
             }
+
             .nav-links.active { transform: translateY(0); }
+
             .mobile-menu-btn { display: flex; }
+
             .hero-content h1 { font-size: 2.8rem; }
+
             .section-title { font-size: 2.2rem; }
+
             .contact-info { padding: 2rem; }
-            
-            .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-            .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
-            .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
         }
     </style>
 </head>
@@ -551,12 +594,10 @@
     </nav>
 
     <div class="parallax-wrapper">
-        <!-- Decorative Parallax Background Elements -->
         <div class="parallax-bg-shape" data-speed="0.1" style="width: 800px; height: 800px; top: 10%; left: -20%;"></div>
         <div class="parallax-bg-shape" data-speed="0.2" style="width: 600px; height: 600px; top: 40%; right: -10%;"></div>
         <div class="parallax-bg-shape" data-speed="0.15" style="width: 900px; height: 900px; top: 70%; left: -30%;"></div>
 
-        <!-- 1. Home Section -->
         <header id="home">
             <div class="hero-carousel" data-speed="0.4">
                 <img src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg" alt="Relaxing Spa Environment" class="active">
@@ -566,11 +607,10 @@
             <div class="hero-content fade-in-up visible" data-speed="-0.2">
                 <h1>J&T ACUPRESSURE</h1>
                 <p>Relax • Restore • Rebalance</p>
-                <a href="#contact" class="btn-primary">Book Now</a>
+                <a href="https://jtacupressure.revoa.ai/book/#/pages/spaMall/massageMatters/massageType" class="btn-primary">Book Now</a>
             </div>
         </header>
 
-        <!-- 2. About Us Section -->
         <section id="about">
             <div class="about-grid fade-in-up">
                 <div class="about-text" data-speed="0.05">
@@ -579,19 +619,16 @@
                     <p>Our philosophy is rooted in the belief that true healing happens in silence and peace. Every detail of our facility, from the muted lighting to the immaculate, quiet therapy rooms, has been thoughtfully designed to help restore your body's natural balance and bring serenity to your mind.</p>
                 </div>
                 <div class="about-image glass-panel">
-                    <!-- Parallax image inner -->
                     <img src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" alt="Quiet Therapy Room" data-speed="-0.1">
                 </div>
             </div>
         </section>
 
-        <!-- 3. Services Section -->
         <section id="services">
             <h2 class="section-title fade-in-up">Therapy Menu</h2>
             <p class="section-subtitle fade-in-up">Discover our specialized acupressure treatments tailored to alleviate tension and promote holistic well-being.</p>
-            
+
             <div class="services-grid">
-                <!-- Service Card 1 -->
                 <div class="service-card glass-panel fade-in-up">
                     <div class="service-carousel">
                         <img src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Body Work 1" class="active">
@@ -604,7 +641,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 2 -->
                 <div class="service-card glass-panel fade-in-up" style="transition-delay: 0.1s;">
                     <div class="service-carousel">
                         <img src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Body Work 3" class="active">
@@ -617,7 +653,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 3 -->
                 <div class="service-card glass-panel fade-in-up" style="transition-delay: 0.2s;">
                     <div class="service-carousel">
                         <img src="https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg" alt="Body Work 5" class="active">
@@ -630,7 +665,6 @@
                     </div>
                 </div>
 
-                <!-- Service Card 4 -->
                 <div class="service-card glass-panel fade-in-up" style="transition-delay: 0.3s;">
                     <div class="service-carousel">
                         <img src="https://i.pinimg.com/736x/97/dc/96/97dc9699bc6c850ecd8776eaee3b7898.jpg" alt="Body Work 7" class="active">
@@ -645,14 +679,11 @@
             </div>
         </section>
 
-        <!-- 4. Reviews Section -->
         <section id="reviews">
             <h2 class="section-title fade-in-up">What Our Clients Say</h2>
             <div class="marquee-container fade-in-up">
-                <!-- Row 1: Scrolls Left -->
                 <div class="marquee-row row-1">
                     <div class="marquee-content">
-                        <!-- Items -->
                         <div class="review-card glass-panel">
                             <div class="stars">★★★★★</div>
                             <p class="review-text">"Absolutely amazing! The environment is incredibly peaceful, spotless, and deeply relaxing. Highly recommended."</p>
@@ -674,7 +705,7 @@
                             <p class="review-text">"Such a restorative experience. I felt like a completely new person walking out of there. Will be back soon!"</p>
                         </div>
                     </div>
-                    <!-- Duplicated for infinite scroll -->
+
                     <div class="marquee-content">
                         <div class="review-card glass-panel">
                             <div class="stars">★★★★★</div>
@@ -699,10 +730,8 @@
                     </div>
                 </div>
 
-                <!-- Row 2: Scrolls Right -->
                 <div class="marquee-row row-2">
                     <div class="marquee-content">
-                        <!-- Items -->
                         <div class="review-card glass-panel">
                             <div class="stars">★★★★★</div>
                             <p class="review-text">"Clean facility, ample parking, and exceptional therapy. The 60-minute session is my weekly go-to."</p>
@@ -724,7 +753,7 @@
                             <p class="review-text">"Incredible value and purely professional. The calmness of the shop is unmatched anywhere else in town."</p>
                         </div>
                     </div>
-                    <!-- Duplicated for infinite scroll -->
+
                     <div class="marquee-content">
                         <div class="review-card glass-panel">
                             <div class="stars">★★★★★</div>
@@ -751,7 +780,6 @@
             </div>
         </section>
 
-        <!-- 5. FAQ Section -->
         <section id="faq">
             <h2 class="section-title fade-in-up">Frequently Asked Questions</h2>
             <div class="accordion fade-in-up">
@@ -763,6 +791,7 @@
                         <p>We recommend arriving 10-15 minutes prior to your scheduled appointment. This allows you ample time to check in, unwind, and prepare for your session without feeling rushed, ensuring you receive your full treatment time.</p>
                     </div>
                 </div>
+
                 <div class="accordion-item">
                     <button class="accordion-header">
                         Can I get a massage if I have an injury? <span>+</span>
@@ -771,6 +800,7 @@
                         <p>If you have an acute injury, recent surgery, or a severe medical condition, we strongly advise consulting your physician before booking. Please inform us of any minor injuries or sensitive areas prior to your session so we can adjust our acupressure techniques accordingly to ensure your safety and comfort.</p>
                     </div>
                 </div>
+
                 <div class="accordion-item">
                     <button class="accordion-header">
                         What is your cancellation policy? <span>+</span>
@@ -779,6 +809,7 @@
                         <p>We value your time and ours. If you need to cancel or reschedule your appointment, we kindly ask for at least a 24-hour notice. This allows us the opportunity to accommodate other clients who may be waiting for a session.</p>
                     </div>
                 </div>
+
                 <div class="accordion-item">
                     <button class="accordion-header">
                         Is there parking available? <span>+</span>
@@ -790,11 +821,10 @@
             </div>
         </section>
 
-        <!-- 6. Contact & Location Section -->
         <section id="contact">
             <h2 class="section-title fade-in-up">Visit Us</h2>
             <p class="section-subtitle fade-in-up">Ready to restore your balance? Reach out to us or drop by our sanctuary.</p>
-            
+
             <div class="contact-grid">
                 <div class="contact-info glass-panel fade-in-up">
                     <div class="info-item">
@@ -804,6 +834,7 @@
                             <p>7774 Atlanta Hwy,<br>Montgomery, AL 36117</p>
                         </div>
                     </div>
+
                     <div class="info-item">
                         <div class="icon">📞</div>
                         <div>
@@ -811,6 +842,7 @@
                             <p>334-587-1133</p>
                         </div>
                     </div>
+
                     <div class="info-item">
                         <div class="icon">🕒</div>
                         <div>
@@ -818,36 +850,34 @@
                             <p>Monday - Sunday<br>9:00 AM - 10:00 PM</p>
                         </div>
                     </div>
+
                     <div style="margin-top: 2rem;">
                         <a href="tel:3345871133" class="btn-primary" style="width: 100%; text-align: center;">Call to Book</a>
                     </div>
                 </div>
-                
-                <!-- Removed the data-speed attribute here to prevent scrolling misalignment -->
+
                 <div class="map-container fade-in-up">
-                    <iframe 
-                        src="https://maps.google.com/maps?q=7774%20Atlanta%20Hwy,%20Montgomery,%20AL%2036117&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-                        allowfullscreen="" 
-                        loading="lazy" 
+                    <iframe
+                        src="https://maps.google.com/maps?q=7774%20Atlanta%20Hwy,%20Montgomery,%20AL%2036117&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen=""
+                        loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
         </section>
-        
+
         <footer>
             <p>&copy; <span id="year"></span> J&T Acupressure. All Rights Reserved. | Relax • Restore • Rebalance</p>
         </footer>
     </div>
 
     <script>
-        // Set Current Year
         document.getElementById('year').innerText = new Date().getFullYear();
 
-        // Mobile Menu Toggle
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        
+
         mobileBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileBtn.classList.toggle('active');
@@ -860,15 +890,13 @@
             });
         });
 
-        // Parallax Effect
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-            
-            // Adjust speeds based on data-speed attribute
+
             document.querySelectorAll('[data-speed]').forEach(el => {
                 const speed = parseFloat(el.getAttribute('data-speed'));
-                // Limit effect on mobile for better performance
-                if(window.innerWidth > 768) {
+
+                if (window.innerWidth > 768) {
                     el.style.transform = `translateY(${scrollY * speed}px)`;
                 } else {
                     el.style.transform = `translateY(${scrollY * (speed * 0.5)}px)`;
@@ -876,12 +904,13 @@
             });
         });
 
-        // Image Carousels (Auto-play)
         const setupCarousel = (selector, intervalTime) => {
             document.querySelectorAll(selector).forEach(container => {
                 const images = container.querySelectorAll('img');
+
                 if (images.length > 1) {
                     let currentIndex = 0;
+
                     setInterval(() => {
                         images[currentIndex].classList.remove('active');
                         currentIndex = (currentIndex + 1) % images.length;
@@ -891,22 +920,19 @@
             });
         };
 
-        setupCarousel('.hero-carousel', 5000); // Hero background changes every 5s
-        setupCarousel('.service-carousel', 3000); // Service cards change every 3s
+        setupCarousel('.hero-carousel', 5000);
+        setupCarousel('.service-carousel', 3000);
 
-        // FAQ Accordion
         document.querySelectorAll('.accordion-header').forEach(button => {
             button.addEventListener('click', () => {
                 const content = button.nextElementSibling;
                 const isActive = button.classList.contains('active');
 
-                // Close all others
                 document.querySelectorAll('.accordion-header').forEach(btn => {
                     btn.classList.remove('active');
                     btn.nextElementSibling.style.maxHeight = null;
                 });
 
-                // Open clicked if it wasn't active
                 if (!isActive) {
                     button.classList.add('active');
                     content.style.maxHeight = content.scrollHeight + "px";
@@ -914,7 +940,6 @@
             });
         });
 
-        // Intersection Observer for Fade-In Animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -925,7 +950,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Run once
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
